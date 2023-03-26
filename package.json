@@ -1,0 +1,35 @@
+{
+  "name": "freecodecamp-show-the-local-weather",
+  "version": "1.12.0",
+  "description": "One of the projects for the FreeCampCode's Front End Development Certificate.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramingar/freecodecamp-show-the-local-weather.git"
+  },
+  "author": "Rafael Minguet García",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ramingar/freecodecamp-show-the-local-weather/issues"
+  },
+  "homepage": "https://github.com/ramingar/freecodecamp-show-the-local-weather#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "weather-icons": "https://github.com/erikflowers/weather-icons/tarball/master"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "fs": "0.0.1-security",
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-shell": "^2.1.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1"
+  }
+}

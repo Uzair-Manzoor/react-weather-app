@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="application-name" content="Weather">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
+
+    <meta name="apple-mobile-web-app-title" content="Weather">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="msapplication-TileImage" content="icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+
+
+    <title>FreeCodeCamp - Show the Local Weather</title>
+
+    <link rel="stylesheet" href="build/css/bootstrap.min.css">
+    <link rel="stylesheet" href="build/css/font-awesome.min.css">
+    <link rel="stylesheet" href="build/css/weather-icons.min.css">
+    <link rel="image/svg+xml" href="build/font/weathericons-regular-webfont.svg">
+    <link rel="application/x-font-ttf" href="build/font/weathericons-regular-webfont.ttf">
+    <link rel="application/x-font-ttf" href="build/font/weathericons-regular-webfont.woff">
+    <link rel="application/x-font-ttf" href="build/font/weathericons-regular-webfont.woff2">
+    <link rel="application/x-font-ttf" href="build/fonts/fontawesome-webfont.ttf">
+    <link rel="application/x-font-ttf" href="build/fonts/fontawesome-webfont.woff">
+    <link rel="application/x-font-ttf" href="build/fonts/fontawesome-webfont.woff2">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="outer">
+    <div class="inner">
+        <div class="card mx-auto text-center">
+            <div class="card-block">
+                <div id="card-refresh" class="card-refresh">
+                    <i class="fa fa-refresh"></i>
+                </div>
+                <i id="weather-icon" class="weather-icon"></i>
+            </div>
+            <div class="card-block">
+                <div id="location" class="h4">Loading location...</div>
+                <div id="weather" class="h5">Loading data...</div>
+                <div id="weather-temp" class="h2">
+                    <span class="weather-temp-number"> </span>
+                    <span class="weather-temp-type"> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        No network connection. Showing available cached data.
+    </div>
+</div>
+
+<script type="text/javascript" src="build/js/jquery.min.js"></script>
+<script type="text/javascript" src="build/js/tether.min.js"></script>
+<script type="text/javascript" src="build/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="build/js/index.js"></script>
+
+</body>
+</html>
