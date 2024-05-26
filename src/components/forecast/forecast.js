@@ -1,81 +1,137 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
-    Accordion,
-    AccordionItemHeading,
-    AccordionItem,
-    AccordionItemPanel,
-    AccordionItemButton
-} from "react-accessible-accordion";
+  Accordion,
+  AccordionItemHeading,
+  AccordionItem,
+  AccordionItemPanel,
+  AccordionItemButton,
+} from 'react-accessible-accordion';
 import './forecast.css';
 
 const WEEK_DAYS = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday'
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
 ];
 
 const Forecast = ({ data }) => {
-    const dayInAWeek = new Date().getDay();
-    const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(
-        WEEK_DAYS.slice(0, dayInAWeek)
-    );
+  const dayInAWeek = new Date().getDay();
+  const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(
+    WEEK_DAYS.slice(0, dayInAWeek),
+  );
 
-    console.log(forecastDays);
+  // console.log(forecastDays);
 
-    return (
-        <>
-            <label className="title">Daily</label>
-            <Accordion allowZeroExpanded>
-                {data.list.splice(0, 7).map((item, idx) => (
-                    <AccordionItem key={idx}>
-                        <AccordionItemHeading>
-                            <AccordionItemButton>
-                                <div className="daily-item">
-                                    <img alt="weather" className="icon-small" src={`icons/${item.weather[0].icon}.png`} />
-                                    <label className="day">{forecastDays[idx]}</label>
-                                    <label className="description">{item.weather[0].description}</label>
-                                    <label className="min-max">
-                                        {Math.round(item.main.temp_min)}°C /{" "}
-                                        {Math.round(item.main.temp_max)}°C</label>
-                                </div>
-                            </AccordionItemButton>
-                        </AccordionItemHeading>
-                        <AccordionItemPanel>
-                            <div className="daily-detail-grid">
-                                <div className="daily-detail-grid-item">
-                                    <label>Pressure:</label>
-                                    <label>{item.main.pressure} hPa</label>
-                                </div>
-                                <div className="daily-detail-grid-item">
-                                    <label>Humidity:</label>
-                                    <label>{item.main.humidity}%</label>
-                                </div>
-                                <div className="daily-detail-grid-item">
-                                    <label>Clouds:</label>
-                                    <label>{item.clouds.all}%</label>
-                                </div>
-                                <div className="daily-detail-grid-item">
-                                    <label>Wind Speed:</label>
-                                    <label>{item.wind.speed} m/s</label>
-                                </div>
-                                <div className="daily-detail-grid-item">
-                                    <label>Sea Level:</label>
-                                    <label>{item.main.sea_level}m</label>
-                                </div>
-                                <div className="daily-detail-grid-item">
-                                    <label>Feels Like:</label>
-                                    <label>{Math.round(item.main.feels_like)}°C</label>
-                                </div>
-                            </div>
-                        </AccordionItemPanel>
-                    </AccordionItem>
-                ))}
-            </Accordion>
-        </>
-    )
-}
+  return (
+    <>
+      <h2 className="title">Daily</h2>
+      <Accordion allowZeroExpanded>
+        {data.list.slice(0, 7).map((item, idx) => (
+          <AccordionItem key={item.dt}>
+            <AccordionItemHeading>
+              <AccordionItemButton>
+                <div className="daily-item">
+                  <img alt="weather" className="icon-small" src={`icons/${item.weather[0].icon}.png`} />
+                  <h3 className="day">{forecastDays[idx]}</h3>
+                  <p className="description">{item.weather[0].description}</p>
+                  <p className="min-max">
+                    {Math.round(item.main.temp_min)}
+                    °C /
+                    {Math.round(item.main.temp_max)}
+                    °C
+                  </p>
+                </div>
+              </AccordionItemButton>
+            </AccordionItemHeading>
+            <AccordionItemPanel>
+              <div className="daily-detail-grid">
+                <div className="daily-detail-grid-item">
+                  <span>Pressure:</span>
+                  <span>
+                    {item.main.pressure}
+                    {' '}
+                    hPa
+                  </span>
+                </div>
+                <div className="daily-detail-grid-item">
+                  <span>Humidity:</span>
+                  <span>
+                    {item.main.humidity}
+                    %
+                  </span>
+                </div>
+                <div className="daily-detail-grid-item">
+                  <span>Clouds:</span>
+                  <span>
+                    {item.clouds.all}
+                    %
+                  </span>
+                </div>
+                <div className="daily-detail-grid-item">
+                  <span>Wind Speed:</span>
+                  <span>
+                    {item.wind.speed}
+                    {' '}
+                    m/s
+                  </span>
+                </div>
+                <div className="daily-detail-grid-item">
+                  <span>Sea Level:</span>
+                  <span>
+                    {item.main.sea_level}
+                    {' '}
+                    m
+                  </span>
+                </div>
+                <div className="daily-detail-grid-item">
+                  <span>Feels Like:</span>
+                  <span>
+                    {Math.round(item.main.feels_like)}
+                    °C
+                  </span>
+                </div>
+              </div>
+            </AccordionItemPanel>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </>
+  );
+};
 
-export default Forecast
+Forecast.propTypes = {
+  data: PropTypes.shape({
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        dt: PropTypes.number.isRequired,
+        weather: PropTypes.arrayOf(
+          PropTypes.shape({
+            description: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+          }),
+        ).isRequired,
+        main: PropTypes.shape({
+          temp_min: PropTypes.number.isRequired,
+          temp_max: PropTypes.number.isRequired,
+          pressure: PropTypes.number.isRequired,
+          humidity: PropTypes.number.isRequired,
+          sea_level: PropTypes.number,
+          feels_like: PropTypes.number.isRequired,
+        }).isRequired,
+        clouds: PropTypes.shape({
+          all: PropTypes.number.isRequired,
+        }).isRequired,
+        wind: PropTypes.shape({
+          speed: PropTypes.number.isRequired,
+        }).isRequired,
+      }),
+    ).isRequired,
+  }).isRequired,
+};
+
+export default Forecast;
