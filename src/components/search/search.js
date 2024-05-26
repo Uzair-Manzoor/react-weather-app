@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { AsyncPaginate } from 'react-select-async-paginate';
 import { GEO_API_URL, geoApiOptions } from '../../api';
 
@@ -15,8 +16,8 @@ const Search = ({ onSearchChange }) => {
         value: `${city.latitude} ${city.longitude}`,
         label: `${city.name}, ${city.countryCode}`,
       })),
-    }))
-    .catch((err) => console.error(err));
+    }));
+    // .catch((err) => console.error(err));
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
@@ -32,6 +33,10 @@ const Search = ({ onSearchChange }) => {
       loadOptions={loadOptions}
     />
   );
+};
+
+Search.propTypes = {
+  onSearchChange: PropTypes.func.isRequired,
 };
 
 export default Search;

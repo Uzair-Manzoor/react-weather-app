@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './current-weather.css';
 
 const CurrentWeather = ({ data }) => (
@@ -29,7 +31,6 @@ const CurrentWeather = ({ data }) => (
           <span className="parameter-label">Wind</span>
           <span className="parameter-value">
             {data.wind.speed}
-            {' '}
             m/s
           </span>
         </div>
@@ -44,7 +45,6 @@ const CurrentWeather = ({ data }) => (
           <span className="parameter-label">Pressure</span>
           <span className="parameter-value">
             {data.main.pressure}
-            {' '}
             hPs
           </span>
         </div>
@@ -52,5 +52,26 @@ const CurrentWeather = ({ data }) => (
     </div>
   </div>
 );
+
+CurrentWeather.propTypes = {
+  data: PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    weather: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+    main: PropTypes.shape({
+      temp: PropTypes.number.isRequired,
+      feels_like: PropTypes.number.isRequired,
+      humidity: PropTypes.number.isRequired,
+      pressure: PropTypes.number.isRequired,
+    }).isRequired,
+    wind: PropTypes.shape({
+      speed: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default CurrentWeather;
