@@ -50,7 +50,7 @@ Visual Studia Code, React.js, HTML/JavaScript linters and ES6.
 
 - [Live Demo Link](https://weatherapplication-plum.vercel.app/)
   
-  ![image](comming soon)
+  ![image](https://github.com/Uzair-Manzoor/react-weather-app/blob/master/public/aplive.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
