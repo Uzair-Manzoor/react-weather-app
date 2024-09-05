@@ -99,9 +99,8 @@ npm test
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
-
+ ![image](https://github.com/Uzair-Manzoor/GemHaven/blob/main/233.png)
 👤 **Uzair-Manzoor**
-
 - GitHub: [@githubhandle](https://github.com/Uzair-Manzoor)
 - Twitter: [@twitterhandle](https://twitter.com/UzairKiyani5555)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/uzair-manzoor-b69996115/)
